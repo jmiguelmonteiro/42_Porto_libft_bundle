@@ -6,12 +6,13 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/04/05 16:10:51 by josemigu         ###   ########.fr        #
+#    Updated: 2025/04/05 19:26:36 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c
+		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+		ft_strlcpy.c
 #INCLUDES = includes
 OBJS = ${SRCS:.c=.o}
 OUT_FILE_NAME = libft.a
@@ -39,6 +40,7 @@ ${OUT_FILE_NAME}: ${OBJS}
 	${AR} ${OUT_FILE_NAME} ${OBJS}
 
 main:
-	${CC} ${CFLAGS} main.c libft.a
+#	${CC} ${CFLAGS} main.c libft.a -lbsd
+	${CC} main.c libft.a -lbsd
 	
 .PHONY: all clean fclean re
