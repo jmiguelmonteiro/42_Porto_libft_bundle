@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/04/05 19:26:36 by josemigu         ###   ########.fr        #
+#    Updated: 2025/04/06 15:53:00 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ ${OUT_FILE_NAME}: ${OBJS}
 	${AR} ${OUT_FILE_NAME} ${OBJS}
 
 main:
-#	${CC} ${CFLAGS} main.c libft.a -lbsd
-	${CC} main.c libft.a -lbsd
+	${CC} ${CFLAGS} main.c libft.a -lbsd
+#	${CC} main.c libft.a -lbsd
 	
 .PHONY: all clean fclean re
