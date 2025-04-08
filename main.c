@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/06 15:52:31 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:34:56 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,35 @@ void	test_ft_memmove(void)
 	printf("ft_memmove For moving: %s\n", src2 + 5);
 	memmove(src2 + 10, src2 + 5, 4);
 	printf("ft_memmove Resultado: %s\n", src2);
+	printf("\n");
 }
 
 void	test_ft_strlcat(void)
 {
-	char	dst[] = "Ola";
+	char	dst1[] = "Ola";
+	char	dst2[] = "Ola";
+	char	dst3[] = "Ola";
+	char	dst4[] = "Ola";
+	char	dst5[] = "Ola";
+	char	dst6[] = "Ola";
 	char	src[] = "42";
 	int		n;
 
 	printf("--- Test ft_strlcat ---\n");
 	//strlcat
-	n = strlcat(dst, src, 1);
-	printf("strlcat Resultado: %s\n%d", dst, n);
-	n = strlcat("Ola", "42", 10);
-	printf("strlcat Resultado: %s\n%d", dst, n);
+	n = strlcat(dst1, src, 1);
+	printf("strlcat Resultado: '%s' %d\n", dst1, n);
+	n = strlcat(dst2, src, 5);
+	printf("strlcat Resultado: '%s' %d\n", dst2, n);
+	n = strlcat(dst3, src, 6);
+	printf("strlcat Resultado: '%s' %d\n", dst3, n);
+	//ft_strlcat
+	n = ft_strlcat(dst4, src, 1);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst4, src, n);
+	n = ft_strlcat(dst5, src, 5);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst5, src,n);
+	n = ft_strlcat(dst6, src, 7);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst6, src,n);
 }
 
 int	main(void)

@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 17:41:20 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/05 19:14:37 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:24:10 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst_len = ft_strlen(dst);
 	if (dst_len > size)
 		return (src_len + size);
-	ft_memcpy(src + src_len, src, size - src_len - 1);
+	ft_memcpy(dst + dst_len, src, size - dst_len - 1);
 	return (src_len + dst_len);
 }
