@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 13:14:28 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:13:29 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)&ptr_s[i]);
 		i++;
 	}
-	return (NULL);
+	return ((void *)NULL);
 }
