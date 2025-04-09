@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 15:57:50 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:53:10 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,20 +126,17 @@ void	test_ft_memcpy(void)
 
 void	test_ft_memmove(void)
 {
-	char	src1[100] = "Test string to memmove.";
-	char	src2[100] = "Test string to ft_memmove.";
-
+	char	s1[100] = "0123456789";
+	char	s2[100] = "0123456789";
+/* 	char	s3[100] = "0123456789";
+	char	s4[100] = "0123456789";
+ */
 	printf("--- Test ft_memmove ---\n");
-	//memmove
-	printf("memmove Original string: %s\n", src1);
-	printf("memmove For moving: %s\n", src1 + 5);
-	memmove(src1 + 10, src1 + 5, 4);
-	printf("memmove Resultado: %s\n", src1);
 	//ft_memmove
-	printf("ft_memmove Original string: %s\n", src2);
-	printf("ft_memmove For moving: %s\n", src2 + 5);
-	memmove(src2 + 10, src2 + 5, 4);
-	printf("ft_memmove Resultado: %s\n", src2);
+	memmove(s1 + 0, s1 + 1, 4);
+	printf("ft_memmove Resultado: %s\n", s1);
+	memmove(s2 + 1, s2 + 0, 4);
+	printf("ft_memmove Resultado: %s\n", s2);
 	printf("\n");
 }
 

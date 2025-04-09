@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 15:01:37 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/05 17:17:36 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:45:49 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n--)
 			ptr_dest[n] = ptr_src[n];
 	else
-		while (i++ < n)
+		while (i < n)
+		{
 			ptr_dest[i] = ptr_src[i];
+			i++;
+		}
 	return (dest);
 }
