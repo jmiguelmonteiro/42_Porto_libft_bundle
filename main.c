@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/08 15:34:56 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:57:50 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,53 @@
 #include <string.h>
 #include <bsd/string.h>
 #include "libft.h"
+#include "stdlib.h"
+
+void hexDump(char *desc, void *addr, int len) 
+{
+    int i;
+    unsigned char buff[17];
+    unsigned char *pc = (unsigned char*)addr;
+
+    // Output description if given.
+    if (desc != NULL)
+        printf ("%s:\n", desc);
+
+    // Process every byte in the data.
+    for (i = 0; i < len; i++) {
+        // Multiple of 16 means new line (with line offset).
+
+        if ((i % 16) == 0) {
+            // Just don't print ASCII for the zeroth line.
+            if (i != 0)
+                printf("  %s\n", buff);
+
+            // Output the offset.
+            printf("  %04x ", i);
+        }
+
+        // Now the hex code for the specific character.
+        printf(" %02x", pc[i]);
+
+        // And store a printable ASCII character for later.
+        if ((pc[i] < 0x20) || (pc[i] > 0x7e)) {
+            buff[i % 16] = '.';
+        } else {
+            buff[i % 16] = pc[i];
+        }
+
+        buff[(i % 16) + 1] = '\0';
+    }
+
+    // Pad out last line if not exactly 16 characters.
+    while ((i % 16) != 0) {
+        printf("   ");
+        i++;
+    }
+
+    // And print the final ASCII bit.
+    printf("  %s\n", buff);
+}
 
 void	test_ft_strlen(void)
 {
@@ -98,31 +145,173 @@ void	test_ft_memmove(void)
 
 void	test_ft_strlcat(void)
 {
-	char	dst1[] = "Ola";
-	char	dst2[] = "Ola";
-	char	dst3[] = "Ola";
-	char	dst4[] = "Ola";
-	char	dst5[] = "Ola";
-	char	dst6[] = "Ola";
+	char	dst01[] = "Ola";
+	char	dst02[] = "Ola";
+	char	dst03[] = "Ola";
+	char	dst11[] = "Ola";
+	char	dst12[] = "Ola";
+	char	dst13[] = "Ola";
 	char	src[] = "42";
 	int		n;
 
 	printf("--- Test ft_strlcat ---\n");
 	//strlcat
-	n = strlcat(dst1, src, 1);
-	printf("strlcat Resultado: '%s' %d\n", dst1, n);
-	n = strlcat(dst2, src, 5);
-	printf("strlcat Resultado: '%s' %d\n", dst2, n);
-	n = strlcat(dst3, src, 6);
-	printf("strlcat Resultado: '%s' %d\n", dst3, n);
+	n = strlcat(dst01, src, 2);
+	printf("strlcat Resultado: '%s' %d\n", dst01, n);
+	n = strlcat(dst02, src, 5);
+	printf("strlcat Resultado: '%s' %d\n", dst02, n);
+	n = strlcat(dst03, src, 6);
+	printf("strlcat Resultado: '%s' %d\n", dst03, n);
 	//ft_strlcat
-	n = ft_strlcat(dst4, src, 1);
-	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst4, src, n);
-	n = ft_strlcat(dst5, src, 5);
-	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst5, src,n);
-	n = ft_strlcat(dst6, src, 7);
-	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst6, src,n);
+	n = ft_strlcat(dst13, src, 2);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst11, src, n);
+	n = ft_strlcat(dst12, src, 5);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst12, src,n);
+	n = ft_strlcat(dst11, src, 7);
+	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst13, src,n);
+	printf("\n");
 }
+
+void	test_ft_toupper(void)
+{
+	printf("--- Test ft_toupper ---\n");
+	//ft_toupper
+	printf("ft_toupper 'a': %c\n", ft_toupper('a'));
+	printf("ft_toupper 'S': %c\n", ft_toupper('S'));
+	printf("ft_toupper '-': %c\n", ft_toupper('-'));
+	printf("\n");
+}
+
+void	test_ft_strchr(void)
+{
+	char	*str = "Test";
+	char	*str_nil = "";
+
+	printf("--- Test ft_strchr ---\n");
+	//ft_strchr
+	printf("ft_strchr 'Test' 'e': %p %p\n", str, ft_strchr(str, 'e'));
+	printf("ft_strchr 'Test' 'a': %p %p\n", str, ft_strchr(str, 'a'));
+	printf("ft_strchr 'Test' '\\0': %p %p\n", str, ft_strchr(str, '\0'));
+	printf("ft_strchr '\\0' '\\0': %p %p\n", str_nil, ft_strchr(str_nil, '\0'));
+	printf("ft_strchr '\\0' 'a': %p %p\n", str_nil, ft_strchr(str_nil, 'a'));
+	printf("\n");
+}
+
+void	test_ft_strrchr(void)
+{
+	char	*str = "test";
+	char	*str_nil = "";
+
+	printf("--- Test ft_strrchr ---\n");
+	//ft_strrchr
+	printf("ft_strrchr 'test' 't': %p %p\n", str, ft_strrchr(str, 't'));
+	printf("ft_strrchr 'test' 'a': %p %p\n", str, ft_strrchr(str, 'a'));
+	printf("ft_strrchr 'test' '\\0': %p %p\n", str, ft_strrchr(str, '\0'));
+	printf("ft_strrchr '\\0' '\\0': %p %p\n", str_nil, ft_strrchr(str_nil, '\0'));
+	printf("ft_strrchr '\\0' 'a': %p %p\n", str_nil, ft_strrchr(str_nil, 'a'));
+	printf("\n");
+}
+
+void	test_ft_strncmp(void)
+{
+	printf("--- Test ft_strncmp ---\n");
+	//ft_strncmp
+	printf("ABC ABC 3: %d\n", ft_strncmp("ABC", "ABC", 3));
+	printf("ABC ABD 2: %d\n", ft_strncmp("ABC", "ABD", 2));
+	printf("ABC AB 5: %d\n", ft_strncmp("ABC", "AB", 5));
+	printf("ABA ABZ 5: %d\n", ft_strncmp("ABA", "ABZ", 5));
+	printf("ABJ ABC 5: %d\n", ft_strncmp("ABJ", "ABC", 5));
+	printf("\n");
+}
+
+void	test_ft_memchr(void)
+{
+	char	*str = "Test";
+	char	*str_nil = "";
+
+	printf("--- Test ft_memchr ---\n");
+	//ft_memchr
+	printf("ft_memchr 'Test' 't' 10: %p %p\n", str, ft_memchr(str, 't', 10));
+	printf("ft_memchr 'Test' 't' 3: %p %p\n", str, ft_memchr(str, 't', 3));
+	printf("ft_memchr '\\0' '\\0' 0: %p %p\n", str_nil, ft_memchr(str_nil, '\0', 0));
+	printf("ft_memchr '\\0' '\\0' 1: %p %p\n", str_nil, ft_memchr(str_nil, '\0', 1));
+	printf("\n");
+}
+
+void	test_ft_memcmp(void)
+{
+	char	*str1 = "ABC";
+	char	*str2 = "ABD";
+	char	*str3 = "AB";
+	char	*str4 = "ABA";
+	char	*str5 = "ABZ";
+	
+	printf("--- Test ft_memcmp ---\n");
+	//ft_memcmp
+	printf("ABC ABC 3: %d\n", ft_memcmp(str1, str1, 3));
+	printf("ABC ABD 2: %d\n", ft_memcmp(str1, str2, 2));
+	printf("ABC AB 5: %d\n", ft_memcmp(str1, str3, 5));
+	printf("ABA ABZ 5: %d\n", ft_strncmp(str4, str5, 5));
+	printf("\n");
+}
+
+void	test_ft_strnstr(void)
+{
+	char	*str1 = "Foo Bar Baz";
+	char	*str2 = "Bar";
+	
+	printf("--- Test ft_strnstr ---\n");
+	//ft_strnstr
+	printf("'%s' '%s' 4'': %s\n", str1, str2, ft_strnstr(str1, str2, 4));
+	printf("'%s' '%s' 7'': %s\n", str1, str2, ft_strnstr(str1, str2, 7));
+	printf("'%s' '%s' 5'': %s\n", str1, str2, ft_strnstr(str1, str2, 5));
+	printf("\n");
+}
+
+void	test_ft_atoi(void)
+{
+	printf("--- Test ft_atoi ---\n");
+	//ft_atoi
+	printf("ft_atoi('10'): %d\n", ft_atoi("10"));
+	printf("ft_atoi('0'): %d\n", ft_atoi("0"));
+	printf("ft_atoi('  \t-020'): %d\n", ft_atoi("  \t-020"));
+	printf("atoi('8748327483274873498'): %d\n", atoi("8748327483274873498"));
+	printf("ft_atoi('8748327483274873498'): %d\n", ft_atoi("8748327483274873498"));
+	printf("atoi('-8748327483274873498'): %d\n", atoi("-8748327483274873498"));
+	printf("ft_atoi('-8748327483274873498'): %d\n", ft_atoi("-8748327483274873498"));
+	printf("\n");
+}
+
+void	test_ft_calloc(void)
+{
+	void	*ptr;
+	void	*ptr2;
+	
+	printf("--- Test ft_calloc ---\n");
+	ptr = ft_calloc(0, 0);
+	printf("ft_calloc: %p\n", ptr);
+	hexDump("Unique pointer", ptr, 1);
+	free(ptr);
+	ptr2 = ft_calloc(10, 5);
+	printf("ft_calloc: %p\n", ptr2);
+	hexDump("Unique pointer", ptr2, 50);
+	free(ptr2);
+	printf("\n");
+}
+
+void	test_ft_strdup(void)
+{
+	char *test = "Test";
+	char *dest_test;
+	
+	printf("--- Test ft_strdup ---\n");
+	dest_test = ft_strdup(test);
+	printf("ft_strdup source: %s\n", test);
+	printf("ft_strdup dest: %s\n", dest_test);
+	printf("\n");
+	free(dest_test);
+}
+
 
 int	main(void)
 {
@@ -151,4 +340,14 @@ int	main(void)
 	test_ft_memcpy();
 	test_ft_memmove();
 	test_ft_strlcat();
+	test_ft_toupper();
+	test_ft_strchr();
+	test_ft_strrchr();
+	test_ft_strncmp();
+	test_ft_memchr();
+	test_ft_memcmp();
+	test_ft_strnstr();
+	test_ft_atoi();
+	test_ft_calloc();
+	test_ft_strdup();
 }
