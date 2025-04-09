@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 16:53:10 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:43:27 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,7 @@ void	test_ft_strncmp(void)
 	printf("ABC AB 5: %d\n", ft_strncmp("ABC", "AB", 5));
 	printf("ABA ABZ 5: %d\n", ft_strncmp("ABA", "ABZ", 5));
 	printf("ABJ ABC 5: %d\n", ft_strncmp("ABJ", "ABC", 5));
+	printf("ABC\\200 ABC\\0 5: %d\n", ft_strncmp("ABC\200", "ABC\0", 5));
 	printf("\n");
 }
 
