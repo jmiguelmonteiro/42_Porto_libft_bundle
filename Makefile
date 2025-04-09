@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/04/09 16:23:49 by josemigu         ###   ########.fr        #
+#    Updated: 2025/04/09 16:27:09 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ re: fclean all
 %.o: %.c 
 	${CC} ${CFLAGS} -c $< -o $@
 
-${OUT_FILE_NAME}: ${OBJS}
+${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
 main:
