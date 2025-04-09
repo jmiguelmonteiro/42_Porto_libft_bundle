@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 14:54:35 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:17:43 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int	ft_atoi(const char *nptr)
 {
- 	unsigned int	value;
+	unsigned int	value;
 	int				signal;
 
 	value = 0;
 	signal = 1;
-		
 	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')

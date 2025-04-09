@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 13:49:22 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:20:40 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
- 	size_t	i;
+	size_t	i;
 	size_t	j;
 
-	(void)len;
-	
 	if (!little[0])
 		return ((char *) big);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 15:51:17 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/09 18:17:08 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	
+
 	ptr = malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);
