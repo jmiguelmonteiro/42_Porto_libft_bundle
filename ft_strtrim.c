@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/11 14:02:52 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:24:15 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,16 @@ static char	*ft_strrtrim(char const *s1, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ls1;
+	char	*str;
 	char	*rs1;
+	int		i;
 
+	*str = (char *) s1;
+	i = ft_strlen(s1);
+	while (str[i - 1] && ft_strrchr(set, str[i - 1]))
+		i--;
+	str[i] = '\0';
+	
 	ls1 = ft_strltrim(s1, set);
 	if (ls1)
 	{
