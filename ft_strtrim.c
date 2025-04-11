@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/11 11:32:43 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:02:52 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+static char	*ft_strltrim(char const *s1, char const *set)
 {
 	int		i;
-	char	*dest;
 
-	dest = malloc((ft_strlen(s) + 1) * sizeof (*dest));
-	if (!dest)
-		return (NULL);
 	i = 0;
-	while (s[i])
-	{
-		dest[i] = s[i];
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
+	return (ft_substr(s1, i, ft_strlen(s1) - i));
+}
+
+static char	*ft_strrtrim(char const *s1, char const *set)
+{
+	int		i;
+
+	i = ft_strlen(s1);
+	while (s1[i - 1] && ft_strrchr(set, s1[i - 1]))
+		i--;
+	return (ft_substr(s1, 0, i));
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*ls1;
+	char	*rs1;
+
+	ls1 = ft_strltrim(s1, set);
+	if (ls1)
+	{
+		rs1 = ft_strrtrim(ls1, set);
+		free (ls1);
+		if (rs1)
+			return (rs1);
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (NULL);
 }

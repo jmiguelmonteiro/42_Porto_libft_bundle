@@ -6,14 +6,13 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/09 17:43:27 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:25:56 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
-#include <bsd/string.h>
 #include "libft.h"
 #include "stdlib.h"
 
@@ -142,9 +141,6 @@ void	test_ft_memmove(void)
 
 void	test_ft_strlcat(void)
 {
-	char	dst01[] = "Ola";
-	char	dst02[] = "Ola";
-	char	dst03[] = "Ola";
 	char	dst11[] = "Ola";
 	char	dst12[] = "Ola";
 	char	dst13[] = "Ola";
@@ -152,14 +148,6 @@ void	test_ft_strlcat(void)
 	int		n;
 
 	printf("--- Test ft_strlcat ---\n");
-	//strlcat
-	n = strlcat(dst01, src, 2);
-	printf("strlcat Resultado: '%s' %d\n", dst01, n);
-	n = strlcat(dst02, src, 5);
-	printf("strlcat Resultado: '%s' %d\n", dst02, n);
-	n = strlcat(dst03, src, 6);
-	printf("strlcat Resultado: '%s' %d\n", dst03, n);
-	//ft_strlcat
 	n = ft_strlcat(dst13, src, 2);
 	printf("ft_strlcat Resultado: '%s' '%s' %d\n", dst11, src, n);
 	n = ft_strlcat(dst12, src, 5);
@@ -310,6 +298,24 @@ void	test_ft_strdup(void)
 	free(dest_test);
 }
 
+void	test_ft_strtrim(void)
+{
+	char *test = " 3123 45 3";
+
+	printf("--- Test ft_strtrim ---\n");
+	printf("ft_strtrim: '%s' '%s'\n", test, ft_strtrim(test, " 3"));
+	printf("\n");
+}
+
+void	test_ft_split(void)
+{
+	char *test = " 3123 45 3 dsa d a sf f  sd f fsg sf fsg fdg       fdgdsfg df      ";
+
+	printf("--- Test ft_split ---\n");
+	ft_split(test, ' ');
+//	printf("ft_split: '%s' %d\n", test, ft_split(test, " "));
+	printf("\n");
+}
 
 int	main(void)
 {
@@ -348,4 +354,6 @@ int	main(void)
 	test_ft_atoi();
 	test_ft_calloc();
 	test_ft_strdup();
+	test_ft_strtrim();
+	test_ft_split();
 }
