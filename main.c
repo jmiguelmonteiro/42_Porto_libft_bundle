@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/11 17:25:56 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/12 13:18:18 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,7 @@ void	test_ft_atoi(void)
 {
 	printf("--- Test ft_atoi ---\n");
 	//ft_atoi
-	printf("ft_atoi('10'): %d\n", ft_atoi("10"));
+	printf("ft_atoi('10'): %d\n", ft_atoi("\007 8"));
 	printf("ft_atoi('0'): %d\n", ft_atoi("0"));
 	printf("ft_atoi('  \t-020'): %d\n", ft_atoi("  \t-020"));
 	printf("atoi('8748327483274873498'): %d\n", atoi("8748327483274873498"));
@@ -317,6 +317,15 @@ void	test_ft_split(void)
 	printf("\n");
 }
 
+void	test_ft_itoa(void)
+{
+	printf("--- Test ft_itoa ---\n");
+	printf("ft_itoa: %d '%s'\n", 1436, ft_itoa(1436));
+	printf("ft_itoa: %d '%s'\n", -36, ft_itoa(-36));
+	printf("ft_itoa: %d '%s'\n", 0, ft_itoa(0));
+	printf("\n");
+}
+
 int	main(void)
 {
 	char	a = '1';
@@ -356,4 +365,5 @@ int	main(void)
 	test_ft_strdup();
 	test_ft_strtrim();
 	test_ft_split();
+	test_ft_itoa();
 }

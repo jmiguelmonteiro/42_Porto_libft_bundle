@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/11 17:48:44 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/12 11:04:07 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static int	count_words(char const *s, char c)
 				s++;
 		}
 	}
-	//printf("count words: %d\n", count);
 	return (count);
 }
 
