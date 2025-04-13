@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/12 13:18:18 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/13 22:27:24 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string.h>
 #include "libft.h"
 #include "stdlib.h"
+#include <limits.h>
 
 void hexDump(char *desc, void *addr, int len) 
 {
@@ -319,10 +320,16 @@ void	test_ft_split(void)
 
 void	test_ft_itoa(void)
 {
+	char 	*str;
+	
+	
 	printf("--- Test ft_itoa ---\n");
+	str = ft_itoa(0);
+	printf("ft_itoa: %d '%s'\n", 0, str);
 	printf("ft_itoa: %d '%s'\n", 1436, ft_itoa(1436));
 	printf("ft_itoa: %d '%s'\n", -36, ft_itoa(-36));
 	printf("ft_itoa: %d '%s'\n", 0, ft_itoa(0));
+	printf("ft_itoa: %d '%s'\n", INT_MIN, ft_itoa(INT_MIN));
 	printf("\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/12 13:20:09 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/13 22:46:16 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,31 +31,28 @@ char	*ft_itoa(int n)
 {
 	int		signal;
 	int		len;
-	long	nn;
+	long 	nn;
 	char	*result;
 
+	nn = n;
+	len = len_itoa_10(nn);
 	signal = 1;
-	if (n < 0)
+	if (nn < 0)
 	{
 		signal = -1;
-		nn = n * -1;
-	} else
-		nn = n;
-	len = len_itoa_10(n);
+		nn *= signal;
+	}
 	result = ft_calloc(len + 1, sizeof (*result));
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
 	while (nn > 9)
 	{
-		result[len - 1] = (char) (nn % 10 + 48);
+		result[--len] = (char) (nn % 10) + 48;
 		nn /= 10;
-		len--;
 	}
+	result[--len] = (char) (nn % 10) + 48;
 	if (signal == -1)
-		result[len] = '-';
-		
-	printf("ft_itoa in: %d %s\n", n, result);
-	
+		result[--len] = '-';
 	return (result);
 }
