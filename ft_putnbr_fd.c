@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/14 15:35:50 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:52:34 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	ft_putnbr_fd(int n, int fd)
 		nn *= -1;
 		ft_putchar_fd('-', fd);
 	}
-	while (nn > 9)
+	if (nn > 9)
 	{
-		ft_putchar_fd((char) (nn % 10 + 48), fd);
-		nn /= 10;
-	}
-	ft_putchar_fd((char) (nn % 10 + 48), fd);
+		ft_putnbr_fd(nn / 10, fd);
+		ft_putnbr_fd(nn % 10, fd);
+	} else
+		ft_putchar_fd((char) (nn + 48), fd);
 }

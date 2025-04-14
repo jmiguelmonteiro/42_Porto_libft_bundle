@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/13 22:27:24 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:02:05 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -333,6 +333,22 @@ void	test_ft_itoa(void)
 	printf("\n");
 }
 
+void	test_ft_putnbr_fd(void)
+{
+	printf("--- Test ft_putnbr_fd ---\n");
+	printf("ft_putnbr_fd: 0\n");
+	ft_putnbr_fd(0, 1);
+	printf("\nft_putnbr_fd: 1436\n");
+	ft_putnbr_fd(1436, 1);
+	printf("\nft_putnbr_fd: -36\n");
+	ft_putnbr_fd(-36, 1);
+	printf("\nft_putnbr_fd: &d\n", INT_MIN);
+	ft_putnbr_fd(INT_MIN, 1);
+	printf("\nft_putnbr_fd: &d\n", INT_MAX);
+	ft_putnbr_fd(INT_MAX, 1);
+	printf("\n\n");
+}
+
 int	main(void)
 {
 	char	a = '1';
@@ -373,4 +389,5 @@ int	main(void)
 	test_ft_strtrim();
 	test_ft_split();
 	test_ft_itoa();
+	test_ft_putnbr_fd();
 }
