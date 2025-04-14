@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
+/*   Updated: 2025/04/14 15:35:50 by josemigu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long 	nn;
+
+	if (fd == -1)
+		return ;
+	nn = n;
+	if (nn < 0)
+	{
+		nn *= -1;
+		ft_putchar_fd('-', fd);
+	}
+	while (nn > 9)
+	{
+		ft_putchar_fd((char) (nn % 10 + 48), fd);
+		nn /= 10;
+	}
+	ft_putchar_fd((char) (nn % 10 + 48), fd);
+}
