@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/04/14 14:51:16 by josemigu         ###   ########.fr        #
+#    Updated: 2025/04/14 23:49:57 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,18 +19,19 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 		ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 		ft_putendl_fd.c ft_putnbr_fd.c
+SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c
 OBJS = ${SRCS:.c=.o}
+OBJS_BONUS = ${SRCS_BONUS:.c=.o}
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar crs
-
 RM = rm -f
 
 all: ${NAME}
 
 clean: 
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_BONUS}
 
 fclean: clean
 	${RM} ${NAME}
@@ -43,8 +44,12 @@ re: fclean all
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-main: re
-#	${CC} ${CFLAGS} main.c libft.a -lbsd -g
+bonus: ${OBJS} ${OBJS_BONUS}
+	${AR} ${NAME} ${OBJS} ${OBJS_BONUS}
+
+main:
 	${CC} ${CFLAGS} main.c libft.a -g
-	
-.PHONY: all clean fclean re
+
+test: re main
+
+.PHONY: all clean fclean re bonus

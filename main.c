@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/14 20:02:05 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/14 22:07:49 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <ctype.h>
 #include <string.h>
 #include "libft.h"
-#include "stdlib.h"
 #include <limits.h>
 
 void hexDump(char *desc, void *addr, int len) 
