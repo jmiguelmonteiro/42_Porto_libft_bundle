@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/14 19:52:34 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/15 22:55:19 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long 	nn;
+	long	nn;
 
 	if (fd == -1)
 		return ;
@@ -28,6 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putnbr_fd(nn / 10, fd);
 		ft_putnbr_fd(nn % 10, fd);
-	} else
-		ft_putchar_fd((char) (nn + 48), fd);
+	}
+	else
+		ft_putchar_fd((char)(nn + 48), fd);
 }
