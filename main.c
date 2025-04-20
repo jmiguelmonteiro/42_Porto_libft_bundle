@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:30:11 by josemigu          #+#    #+#             */
-/*   Updated: 2025/04/14 22:07:49 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/04/20 19:39:23 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,17 @@ void hexDump(char *desc, void *addr, int len)
 void	test_ft_strlen(void)
 {
 	char	str1[20] = "to be deleted";
+	char	*str2 = NULL;
 
 	printf("--- Test ft_strlen ---\n");
 
 	//strlen
 	printf("strlen: %s: %zu\n", str1, strlen(str1));
+	printf("strlen: %s: %zu\n", str2, strlen(str2));
 
 	//ft_strlen
 	printf("ft_strlen: %s: %zu\n\n", str1, ft_strlen(str1));
+	printf("ft_strlen: %s: %zu\n\n", str2, ft_strlen(str2));
 }
 
 void	test_ft_bzero(void)
