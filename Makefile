@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/17 13:31:36 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/17 13:33:37 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,10 @@ RESET  = 	\033[0m
 NAME = libft.a
 
 # Paths
+LIBFT_DIR = libft
 GNL_DIR = gnl
 PRINTF_DIR = printf
-INCLUDES = -Iincludes -I$(GNL_DIR) -I$(PRINTF_DIR)
+INCLUDES = -Iincludes -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(PRINTF_DIR)
 
 # Sources
 SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
