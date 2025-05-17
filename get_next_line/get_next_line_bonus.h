@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/17 12:43:23 by josemigu         ###   ########.fr       */
+/*   Created: 2025/05/05 15:57:20 by josemigu          #+#    #+#             */
+/*   Updated: 2025/05/17 12:43:48 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <limits.h>
+# include <stdint.h>
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
+# endif
+
+char	*get_next_line(int fd);
+
+#endif
