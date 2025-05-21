@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/21 16:24:17 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/21 16:41:26 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,15 @@ RESET  = 	\033[0m
 NAME = libft.a
 
 # Paths
-LIBFT_PATH		= .
+LIBFT_PATH		= libft
 GNL_PATH		= gnl
 PRINTF_PATH		= ft_printf
 INCLUDES_PATH	= includes
 BUILD_PATH		= build
 
 # Sources
-SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+SRCS_LIBFT = $(addprefix $(LIBFT_PATH)/, \
+		ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
 		ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
 		ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
@@ -38,8 +39,8 @@ SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-SRCS_GNL = $(addprefix $(LIBFT_PATH)/, \
+		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c)
+SRCS_GNL = $(addprefix $(GNL_PATH)/, \
 		get_next_line_bonus.c)
 SRCS_PRINTF = $(addprefix $(PRINTF_PATH)/, \
 		ft_printf_base.c ft_printf_chr.c ft_printf_int.c ft_printf_ptr.c \
