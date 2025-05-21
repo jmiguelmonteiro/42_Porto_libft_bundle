@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/21 17:49:00 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/21 18:07:58 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS_PRINTF = $(addprefix $(PRINTF_PATH)/, \
 OBJS_LIBFT	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_LIBFT:.c=.o)))
 OBJS_GNL	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_GNL:.c=.o)))
 OBJS_PRINTF	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_PRINTF:.c=.o)))
+OBJS		= $(OBJS_LIBFT) $(OBJS_GNL) $(OBJS_PRINTF)
 
 # Commands
 CC			= cc
@@ -66,13 +67,13 @@ $(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
 $(BUILD_PATH)/%.o: $(PRINTF_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(BUILD_PATH) $(OBJS_LIBFT) $(OBJS_GNL) $(OBJS_PRINTF)
+$(NAME): $(BUILD_PATH) $(OBJS)
 	@echo "* $(YEL)Archiving $(_NAME) archive$(D)"
-	$(AR) $(NAME) $(OBJS)	
+	$(AR) $(NAME) $(OBJS)
 	@echo "✅ Libft created with success."
 		
 clean: 
-	${RM} ${OBJS_LIBFT} ${OBJS_GNL} ${OBJS_PRINTF}
+	${RM} ${OBJS}
 	@echo "✅ Cleaned objects with success."
 
 fclean: clean
