@@ -6,10 +6,11 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 15:57:00 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/12 14:48:06 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:02:24 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "get_next_line_bonus.h"
 
 static char	*extract_line(char *raw_line)

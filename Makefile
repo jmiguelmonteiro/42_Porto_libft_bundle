@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/17 13:33:37 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/21 16:24:17 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,11 @@ RESET  = 	\033[0m
 NAME = libft.a
 
 # Paths
-LIBFT_DIR = libft
-GNL_DIR = gnl
-PRINTF_DIR = printf
-INCLUDES = -Iincludes -I$(LIBFT_DIR) -I$(GNL_DIR) -I$(PRINTF_DIR)
+LIBFT_PATH		= .
+GNL_PATH		= gnl
+PRINTF_PATH		= ft_printf
+INCLUDES_PATH	= includes
+BUILD_PATH		= build
 
 # Sources
 SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
@@ -38,34 +39,52 @@ SRCS_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-SRCS_GNL = $(GNL_DIR)/get_next_line_bonus.c
+SRCS_GNL = $(addprefix $(LIBFT_PATH)/, \
+		get_next_line_bonus.c)
+SRCS_PRINTF = $(addprefix $(PRINTF_PATH)/, \
+		ft_printf_base.c ft_printf_chr.c ft_printf_int.c ft_printf_ptr.c \
+		ft_printf_str.c	ft_printf.c)
 
 # Objects
-OBJS_LIBFT = ${SRCS_LIBFT:.c=.o}
-OBJS_GNL = ${SRCS_GNL:.c=.o}
-OBJS_PRINTF = ${SRCS_PRINTF:.c=.o}
-OBJS = $(OBJS_LIBFT) $(OBJS_GNL) $(OBJS_PRINTF)
+OBJS_LIBFT	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_LIBFT:.c=.o)))
+OBJS_GNL	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_GNL:.c=.o)))
+OBJS_PRINTF	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_PRINTF:.c=.o)))
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror $(INCLUDES) -g
-AR = ar crs
-RM = rm -f
+CC			= cc
+INCLUDES	= -Iincludes -I$(INCLUDES_DIR)
+CFLAGS		= -Wall -Wextra -Werror $(INCLUDES) -g
+AR			= ar crs
+RM			= rm -f
+MKDIR-P		= mkdir -p
 
 all: ${NAME}
 
+$(BUILD_PATH):
+	$(MKDIR-P) $(BUILD_PATH)
+	@echo "* $(ORANGE)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
+
+$(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_PATH)/%.o: $(GNL_PATH)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_PATH)/%.o: $(PRINTF_PATH)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(BUILD_PATH) $(OBJS_LIBFT) $(OBJS_GNL) $(OBJS_PRINTF)
+	@echo "* $(YEL)Archiving $(_NAME) archive$(D)"
+	$(AR) $(NAME) $(OBJS)	
+	@echo "✅ Libft created with success."
+		
 clean: 
-	${RM} ${OBJS}
+	${RM} ${OBJS_LIBFT} ${OBJS_GNL} ${OBJS_PRINTF}
+	@echo "✅ Cleaned objects with success."
 
 fclean: clean
 	${RM} ${NAME}
+	@echo "✅ Cleaned library with success."
 
 re: fclean all
-
-%.o: %.c 
-	${CC} ${CFLAGS} -c $< -o $@
-
-${NAME}: ${OBJS}
-	${AR} ${NAME} ${OBJS}
-	@echo "✅ Libft criada com sucesso."
 
 .PHONY: all clean fclean re
