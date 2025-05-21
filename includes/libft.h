@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:43:37 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/21 17:01:57 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/05/21 18:35:07 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // GNL
 char	*get_next_line(int fd);
 // ft_printf
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 
 #endif
