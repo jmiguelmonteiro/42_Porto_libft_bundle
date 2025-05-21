@@ -6,17 +6,9 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/21 16:41:26 by josemigu         ###   ########.fr        #
+#    Updated: 2025/05/21 17:49:00 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# Color codes
-RED    = 	\033[0;31m
-GREEN  = 	\033[0;32m
-ORANGE = 	\033[0;33m
-BLUE   = 	\033[34m
-PURPLE = 	\033[35m
-RESET  = 	\033[0m
 
 NAME = libft.a
 
@@ -51,18 +43,19 @@ OBJS_LIBFT	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_LIBFT:.c=.o)))
 OBJS_GNL	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_GNL:.c=.o)))
 OBJS_PRINTF	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_PRINTF:.c=.o)))
 
+# Commands
 CC			= cc
-INCLUDES	= -Iincludes -I$(INCLUDES_DIR)
+INCLUDES	= -I$(INCLUDES_PATH)
 CFLAGS		= -Wall -Wextra -Werror $(INCLUDES) -g
 AR			= ar crs
 RM			= rm -f
 MKDIR-P		= mkdir -p
 
+# Rules
 all: ${NAME}
 
 $(BUILD_PATH):
 	$(MKDIR-P) $(BUILD_PATH)
-	@echo "* $(ORANGE)Creating $(BUILD_PATH) folder:$(D) $(_SUCCESS)"
 
 $(BUILD_PATH)/%.o: $(LIBFT_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
