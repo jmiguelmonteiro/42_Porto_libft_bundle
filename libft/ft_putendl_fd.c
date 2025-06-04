@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:15:25 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/23 18:53:23 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 17:08:41 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ void	ft_putendl_fd(char *s, int fd)
 	i = 0;
 	if (fd != -1)
 	{
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+		write(fd, s, ft_strlen(s));
 		ft_putchar_fd('\n', fd);
 	}
 }
