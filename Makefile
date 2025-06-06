@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/05/21 18:07:58 by josemigu         ###   ########.fr        #
+#    Updated: 2025/06/06 19:34:43 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,13 @@ SRCS_LIBFT = $(addprefix $(LIBFT_PATH)/, \
 		ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c)
+		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
+		ft_lstbeforelast.c )
 SRCS_GNL = $(addprefix $(GNL_PATH)/, \
-		get_next_line_bonus.c)
+		get_next_line_bonus.c )
 SRCS_PRINTF = $(addprefix $(PRINTF_PATH)/, \
 		ft_printf_base.c ft_printf_chr.c ft_printf_int.c ft_printf_ptr.c \
-		ft_printf_str.c	ft_printf.c)
+		ft_printf_str.c	ft_printf.c )
 
 # Objects
 OBJS_LIBFT	= $(addprefix $(BUILD_PATH)/, $(notdir $(SRCS_LIBFT:.c=.o)))
