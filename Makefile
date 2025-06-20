@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/06/06 19:34:43 by josemigu         ###   ########.fr        #
+#    Updated: 2025/06/20 14:49:30 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRCS_LIBFT = $(addprefix $(LIBFT_PATH)/, \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
-		ft_lstbeforelast.c )
+		ft_lstbeforelast.c ft_atof.c ft_isspace.c)
 SRCS_GNL = $(addprefix $(GNL_PATH)/, \
 		get_next_line_bonus.c )
 SRCS_PRINTF = $(addprefix $(PRINTF_PATH)/, \

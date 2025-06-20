@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:43:37 by josemigu          #+#    #+#             */
-/*   Updated: 2025/05/21 18:35:07 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/20 14:50:21 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,13 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 // Convert
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
+int		ft_atoi(const char *nptr);
 // Put
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
