@@ -6,7 +6,7 @@
 #    By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/01 13:04:36 by josemigu          #+#    #+#              #
-#    Updated: 2025/06/20 14:49:30 by josemigu         ###   ########.fr        #
+#    Updated: 2025/06/20 18:22:03 by josemigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(BUILD_PATH)/%.o: $(PRINTF_PATH)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(BUILD_PATH) $(OBJS)
-	@echo "* $(YEL)Archiving $(_NAME) archive$(D)"
+	@echo "* $(YEL)Archiving $(NAME) archive$(D)"
 	$(AR) $(NAME) $(OBJS)
 	@echo "✅ Libft created with success."
 		
