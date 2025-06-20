@@ -6,7 +6,7 @@
 /*   By: josemigu <josemigu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 12:43:37 by josemigu          #+#    #+#             */
-/*   Updated: 2025/06/20 14:50:21 by josemigu         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:55:25 by josemigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
-int		ft_atoi(const char *nptr);
+double	ft_atof(const char *nptr);
 // Put
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
